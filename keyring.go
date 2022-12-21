@@ -20,6 +20,7 @@ const (
 	WinCredBackend       BackendType = "wincred"
 	FileBackend          BackendType = "file"
 	PassBackend          BackendType = "pass"
+	K8Secret             BackendType = "k8secret"
 )
 
 // This order makes sure the OS-specific backends
@@ -36,6 +37,7 @@ var backendOrder = []BackendType{
 	// General
 	PassBackend,
 	FileBackend,
+	K8Secret,
 }
 
 var supportedBackends = map[BackendType]opener{}
@@ -44,6 +46,8 @@ var supportedBackends = map[BackendType]opener{}
 func AvailableBackends() []BackendType {
 	b := []BackendType{}
 	for _, k := range backendOrder {
+		debugf("backendOrders: %v", backendOrder)
+
 		_, ok := supportedBackends[k]
 		if ok {
 			b = append(b, k)

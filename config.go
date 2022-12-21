@@ -55,4 +55,7 @@ type Config struct {
 
 	// WinCredPrefix is a string prefix to prepend to the key name
 	WinCredPrefix string
+
+	// grpc server for k8sbridge
+	Server string
 }

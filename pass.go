@@ -58,6 +58,7 @@ type passKeyring struct {
 	dir     string
 	passcmd string
 	prefix  string
+	server  string
 }
 
 func (k *passKeyring) pass(args ...string) *exec.Cmd {
